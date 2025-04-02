@@ -30,6 +30,8 @@ public class VehicleFrame {
         frame.setLocationRelativeTo(null);
         frame.setAlwaysOnTop(true);
 
+        Font font = new Font("Arial", Font.PLAIN, 16);
+
         panel1 = new JPanel(new GridLayout(2,2,10,10));
         panel1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
@@ -41,6 +43,8 @@ public class VehicleFrame {
         txtCheckIn = new JTextField(15);
         txtCheckOut = new JTextField(15);
         txtFee = new JTextField(15);
+
+
 
         panel1.add(new JLabel("Biển số xe"));
         panel1.add(txtlicensePlate);
@@ -78,6 +82,33 @@ public class VehicleFrame {
         table = new JTable(model);
 
         JScrollPane scrollPane = new JScrollPane(table);
+        txtlicensePlate.setFont(font);
+        txtID.setFont(font);
+        txtType.setFont(font);
+        txtparkingSpot.setFont(font);
+        txtparkingDate.setFont(font);
+        txtCheckIn.setFont(font);
+        txtCheckOut.setFont(font);
+        txtFee.setFont(font);
+
+// Áp dụng font cho JLabel
+        for (Component c : panel1.getComponents()) {
+            if (c instanceof JLabel) {
+                c.setFont(font);
+            }
+        }
+
+// Áp dụng font cho các JButton
+        btnThem.setFont(font);
+        btnSua.setFont(font);
+        btnXoa.setFont(font);
+        btnTimKiem.setFont(font);
+        btnThoat.setFont(font);
+
+// Chỉnh font cho JTable
+        table.setFont(new Font("Arial", Font.PLAIN, 14));
+        table.setRowHeight(25);
+
 
         table.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting() && table.getSelectedRow() != -1){

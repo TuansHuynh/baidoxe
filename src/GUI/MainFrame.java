@@ -92,7 +92,6 @@ public class MainFrame {
             }
         });
 
-        fr.add(panel);
         fr.add(mainPanel, BorderLayout.NORTH);
         fr.setVisible(true);
     }
