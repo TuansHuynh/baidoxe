@@ -14,8 +14,8 @@ import java.util.List;
 public class VehicleFrame {
     private JFrame frame;
     private JPanel panel1, panelButton;
-    private  JTextField txtlicensePlate, txtID, txtType, txtparkingSpot, txtparkingDate, searchFields, txtCheckIn, txtCheckOut, txtFee;
-    private  JButton btnThem, btnSua, btnXoa, btnTimKiem, btnThoat;
+    private JTextField txtlicensePlate, txtID, txtType, txtparkingSpot, txtparkingDate, searchFields, txtCheckIn, txtCheckOut, txtFee;
+    private JButton btnThem, btnSua, btnXoa, btnTimKiem, btnThoat;
     private JTable table;
     private DefaultTableModel model;
     private VehicleService vehicleService;
@@ -82,6 +82,7 @@ public class VehicleFrame {
         table = new JTable(model);
 
         JScrollPane scrollPane = new JScrollPane(table);
+
         txtlicensePlate.setFont(font);
         txtID.setFont(font);
         txtType.setFont(font);
@@ -91,21 +92,18 @@ public class VehicleFrame {
         txtCheckOut.setFont(font);
         txtFee.setFont(font);
 
-// Áp dụng font cho JLabel
         for (Component c : panel1.getComponents()) {
             if (c instanceof JLabel) {
                 c.setFont(font);
             }
         }
 
-// Áp dụng font cho các JButton
         btnThem.setFont(font);
         btnSua.setFont(font);
         btnXoa.setFont(font);
         btnTimKiem.setFont(font);
         btnThoat.setFont(font);
 
-// Chỉnh font cho JTable
         table.setFont(new Font("Arial", Font.PLAIN, 14));
         table.setRowHeight(25);
 

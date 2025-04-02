@@ -23,10 +23,12 @@ public class MainFrame {
         fr.setSize(800, 600);
         fr.setLayout(new BorderLayout());
 
+        Font font = new Font("Arial", Font.PLAIN, 16);
+
         mainPanel = new JPanel(new BorderLayout());
         mainPanel.setLayout(new GridLayout(2,2));
 
-        btnManageVehicle = new JButton("QUản lí thông tin xe");
+        btnManageVehicle = new JButton("Quản lí thông tin xe");
         btnManageCustomer = new JButton("Quản lí thông tin khách hàng");
 
         mainPanel.add(btnManageCustomer);
@@ -49,7 +51,8 @@ public class MainFrame {
         menuManage2.add(menuExit);
         menuBar.add(menuManage2);
 
-        fr.setJMenuBar(menuBar);
+        btnManageCustomer.setFont(font);
+        btnManageVehicle.setFont(font);
 
         menuCustomers.addActionListener(new ActionListener() {
             @Override
@@ -92,6 +95,7 @@ public class MainFrame {
             }
         });
 
+        fr.setJMenuBar(menuBar);
         fr.add(mainPanel, BorderLayout.NORTH);
         fr.setVisible(true);
     }

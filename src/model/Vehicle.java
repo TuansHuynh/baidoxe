@@ -12,6 +12,7 @@ public class Vehicle {
     private Date checkOutTime;
     private double fee;
     public Vehicle(){}
+
     public Vehicle(String licensePlate, String ownerId, String type, String parkingSpot, Date parkingDate, Date checkInTime, Date checkOutTime, double fee) {
         this.licensePlate = licensePlate;
         this.ownerId = ownerId;
