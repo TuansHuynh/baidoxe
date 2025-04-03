@@ -111,11 +111,10 @@ public class VehicleFrame {
                     txtparkingSpot.setText(table.getValueAt(row, 3).toString());
                     txtparkingDate.setText(table.getValueAt(row, 4).toString());
                     txtCheckIn.setText(table.getValueAt(row, 5).toString());
+                    
                     Object checkOutValue = table.getValueAt(row, 6);
                     txtCheckOut.setText((checkOutValue == null || checkOutValue.toString().trim().isEmpty()) ? "Chưa CheckOut" : checkOutValue.toString());
 
-//                    Object feeValue = table.getValueAt(row, 7);
-//                    txtFee.setText((feeValue == null || feeValue.toString().trim().isEmpty()) ? "Chưa trả tiên" : feeValue.toString());
                     txtFee.setText(table.getValueAt(row,7).toString());
                 }
                 catch (Exception e1){

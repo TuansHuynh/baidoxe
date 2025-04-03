@@ -11,11 +11,11 @@ import service.VehicleService;
 
 public class MainFrame {
     private  JFrame fr;
-    private  JButton btnManageCustomer, btnManageVehicle;
+    private  JButton btnManageCustomer, btnManageVehicle, btnManageVehicleCheck, btnThoat;
     private JMenu menuManage1, menuManage2;
     private JMenuBar menuBar;
     private JMenuItem menuCustomers, menuVehicles, menuLogout, menuExit ;
-    private JPanel mainPanel;
+    private JPanel mainPanel, panel1;
     public MainFrame() {
 
         fr = new JFrame("Quản Lý Bãi Đỗ Xe");
@@ -30,9 +30,11 @@ public class MainFrame {
 
         btnManageVehicle = new JButton("Quản lí thông tin xe");
         btnManageCustomer = new JButton("Quản lí thông tin khách hàng");
+        btnManageVehicleCheck = new JButton("Quản lí thông tin ra vào");
 
         mainPanel.add(btnManageCustomer);
         mainPanel.add(btnManageVehicle);
+        mainPanel.add(btnManageVehicleCheck);
 
         menuBar = new JMenuBar();
         menuManage1 = new JMenu("Quản lý");
@@ -53,6 +55,10 @@ public class MainFrame {
 
         btnManageCustomer.setFont(font);
         btnManageVehicle.setFont(font);
+
+        panel1 = new JPanel();
+        btnThoat = new JButton("Thoát");
+        panel1.add(btnThoat);
 
         menuCustomers.addActionListener(new ActionListener() {
             @Override
@@ -80,6 +86,13 @@ public class MainFrame {
             }
         });
 
+        btnManageVehicleCheck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ManageVehicleFrame();
+            }
+        });
+
         menuLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,8 +107,15 @@ public class MainFrame {
                 System.exit(0);
             }
         });
+        btnThoat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
         fr.setJMenuBar(menuBar);
+        fr.add(panel1, BorderLayout.SOUTH);
         fr.add(mainPanel, BorderLayout.NORTH);
         fr.setVisible(true);
     }
