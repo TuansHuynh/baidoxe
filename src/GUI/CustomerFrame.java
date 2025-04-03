@@ -29,6 +29,8 @@ public class CustomerFrame {
 
         customerService = new CustomerService();
 
+        Font font = new Font("Arial", Font.PLAIN, 16);
+
         panel1 = new JPanel(new GridLayout(2,2,10,10));
         panel1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
@@ -46,27 +48,45 @@ public class CustomerFrame {
         panel1.add(new JLabel("Ngày Đăng Kí"));
         panel1.add(txtRegistrationDate);
 
+        for (Component c : panel1.getComponents()) {
+            if (c instanceof JLabel) {
+                c.setFont(font);
+            }
+        }
+
+        txtID.setFont(font);
+        txtPhone.setFont(font);
+        txtName.setFont(font);
+        txtRegistrationDate.setFont(font);
 
         panelButton = new JPanel();
-        btnThem = new JButton("Thêm");
-        btnSua = new JButton("Sửa");
-        btnXoa = new JButton("Xóa");
-        btnTimKiem = new JButton("Tìm kiếm");
-        searchFields = new JTextField(10);
+//        btnThem = new JButton("Thêm");
+//        btnSua = new JButton("Sửa");
+//        btnXoa = new JButton("Xóa");
+//        btnTimKiem = new JButton("Tìm kiếm");
+//        searchFields = new JTextField(10);
         btnThoat = new JButton("Thoát");
-        panelButton.add(btnThem);
-        panelButton.add(btnXoa);
-        panelButton.add(btnSua);
+//        panelButton.add(btnThem);
+//        panelButton.add(btnXoa);
+//        panelButton.add(btnSua);
         panelButton.add(btnThoat);
         panelButton.add(btnTimKiem);
         panelButton.add(searchFields);
 
+        btnThem.setFont(font);
+        btnSua.setFont(font);
+        btnXoa.setFont(font);
+        btnTimKiem.setFont(font);
+        btnThoat.setFont(font);
 
         model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{"Mã KH", "Họ Tên", "SĐT", "Ngày đăng kí", "Số giờ thuê"});
         table = new JTable(model);
 
         JScrollPane scrollPane = new JScrollPane(table);
+
+        table.setFont(new Font("Arial", Font.PLAIN, 14));
+        table.setRowHeight(25);
 
         table.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting() && table.getSelectedRow() != -1){

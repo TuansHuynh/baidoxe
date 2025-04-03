@@ -19,6 +19,7 @@ public class VehicleFrame {
     private JTable table;
     private DefaultTableModel model;
     private VehicleService vehicleService;
+
     public VehicleFrame() {
 
         vehicleService = new VehicleService();
@@ -32,7 +33,7 @@ public class VehicleFrame {
 
         Font font = new Font("Arial", Font.PLAIN, 16);
 
-        panel1 = new JPanel(new GridLayout(2,2,10,10));
+        panel1 = new JPanel(new GridLayout(2, 2, 10, 10));
         panel1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         txtlicensePlate = new JTextField(15);
@@ -43,7 +44,6 @@ public class VehicleFrame {
         txtCheckIn = new JTextField(15);
         txtCheckOut = new JTextField(15);
         txtFee = new JTextField(15);
-
 
 
         panel1.add(new JLabel("Biển số xe"));
@@ -64,21 +64,21 @@ public class VehicleFrame {
         panel1.add(txtFee);
 
         panelButton = new JPanel();
-        btnThem = new JButton("Thêm");
-        btnSua = new JButton("Sửa");
-        btnXoa = new JButton("Xóa");
+//        btnThem = new JButton("Thêm");
+//        btnSua = new JButton("Sửa");
+//        btnXoa = new JButton("Xóa");
         btnTimKiem = new JButton("Tìm kiếm");
         searchFields = new JTextField(10);
         btnThoat = new JButton("Thoát");
-        panelButton.add(btnThem);
-        panelButton.add(btnXoa);
-        panelButton.add(btnSua);
+//        panelButton.add(btnThem);
+//        panelButton.add(btnXoa);
+//        panelButton.add(btnSua);
         panelButton.add(btnThoat);
         panelButton.add(btnTimKiem);
         panelButton.add(searchFields);
 
         model = new DefaultTableModel();
-        model.setColumnIdentifiers(new String[]{"Biển số xe", "Mã chủ xe", "Loại xe", "Vị trí đỗ xe", "Ngày đăng kí thuê","Ngày giờ vào", "Ngày giờ ra", "Phí phải trả"});
+        model.setColumnIdentifiers(new String[]{"Biển số xe", "Mã chủ xe", "Loại xe", "Vị trí đỗ xe", "Ngày đăng kí thuê", "Ngày giờ vào", "Ngày giờ ra", "Phí phải trả"});
         table = new JTable(model);
 
         JScrollPane scrollPane = new JScrollPane(table);
@@ -109,17 +109,26 @@ public class VehicleFrame {
 
 
         table.getSelectionModel().addListSelectionListener(e -> {
-            if (!e.getValueIsAdjusting() && table.getSelectedRow() != -1){
+            if (!e.getValueIsAdjusting() && table.getSelectedRow() != -1) {
                 int row = table.getSelectedRow();
 
-                txtlicensePlate.setText(table.getValueAt(row, 0).toString());
-                txtID.setText(table.getValueAt(row, 1).toString());
-                txtType.setText(table.getValueAt(row, 2).toString());
-                txtparkingSpot.setText(table.getValueAt(row, 3).toString());
-                txtparkingDate.setText(table.getValueAt(row, 4).toString());
-                txtCheckIn.setText(table.getValueAt(row, 5).toString());
-                txtCheckOut.setText(table.getValueAt(row, 6).toString());
-                txtFee.setText(table.getValueAt(row,7).toString());
+                try {
+                    txtlicensePlate.setText(table.getValueAt(row, 0).toString());
+                    txtID.setText(table.getValueAt(row, 1).toString());
+                    txtType.setText(table.getValueAt(row, 2).toString());
+                    txtparkingSpot.setText(table.getValueAt(row, 3).toString());
+                    txtparkingDate.setText(table.getValueAt(row, 4).toString());
+                    txtCheckIn.setText(table.getValueAt(row, 5).toString());
+                    Object checkOutValue = table.getValueAt(row, 6);
+                    txtCheckOut.setText((checkOutValue == null || checkOutValue.toString().trim().isEmpty()) ? "Chưa CheckOut" : checkOutValue.toString());
+
+//                    Object feeValue = table.getValueAt(row, 7);
+//                    txtFee.setText((feeValue == null || feeValue.toString().trim().isEmpty()) ? "Chưa trả tiên" : feeValue.toString());
+                    txtFee.setText(table.getValueAt(row,7).toString());
+                }
+                catch (Exception e1){
+                    e1.printStackTrace();
+                }
             }
         });
 
@@ -165,10 +174,11 @@ public class VehicleFrame {
         frame.add(panel1, BorderLayout.NORTH);
         frame.setVisible(true);
     }
-    private void loadVehicle(){
+
+    private void loadVehicle() {
         model.setRowCount(0);
         List<Vehicle> vehicles = vehicleService.getAllVehicle();
-        for (Vehicle vehicle : vehicles){
+        for (Vehicle vehicle : vehicles) {
             model.addRow(new Object[]{
                     vehicle.getLicensePlate(),
                     vehicle.getOwnerId(),

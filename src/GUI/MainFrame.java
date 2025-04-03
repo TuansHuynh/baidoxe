@@ -15,7 +15,7 @@ public class MainFrame {
     private JMenu menuManage1, menuManage2;
     private JMenuBar menuBar;
     private JMenuItem menuCustomers, menuVehicles, menuLogout, menuExit ;
-    private JPanel mainPanel, panel;
+    private JPanel mainPanel;
     public MainFrame() {
 
         fr = new JFrame("Quản Lý Bãi Đỗ Xe");
@@ -26,7 +26,7 @@ public class MainFrame {
         Font font = new Font("Arial", Font.PLAIN, 16);
 
         mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setLayout(new GridLayout(2,2));
+        mainPanel.setLayout(new GridLayout(1,2));
 
         btnManageVehicle = new JButton("Quản lí thông tin xe");
         btnManageCustomer = new JButton("Quản lí thông tin khách hàng");
