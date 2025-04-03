@@ -63,16 +63,11 @@ public class VehicleFrame {
         panel1.add(new JLabel("Phí"));
         panel1.add(txtFee);
 
-        panelButton = new JPanel();
-//        btnThem = new JButton("Thêm");
-//        btnSua = new JButton("Sửa");
-//        btnXoa = new JButton("Xóa");
         btnTimKiem = new JButton("Tìm kiếm");
         searchFields = new JTextField(10);
         btnThoat = new JButton("Thoát");
-//        panelButton.add(btnThem);
-//        panelButton.add(btnXoa);
-//        panelButton.add(btnSua);
+
+        panelButton = new JPanel();
         panelButton.add(btnThoat);
         panelButton.add(btnTimKiem);
         panelButton.add(searchFields);
@@ -98,9 +93,6 @@ public class VehicleFrame {
             }
         }
 
-        btnThem.setFont(font);
-        btnSua.setFont(font);
-        btnXoa.setFont(font);
         btnTimKiem.setFont(font);
         btnThoat.setFont(font);
 
@@ -129,27 +121,6 @@ public class VehicleFrame {
                 catch (Exception e1){
                     e1.printStackTrace();
                 }
-            }
-        });
-
-        btnThem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        btnXoa.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        btnSua.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
             }
         });
 

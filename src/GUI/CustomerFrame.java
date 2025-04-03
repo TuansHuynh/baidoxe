@@ -63,8 +63,8 @@ public class CustomerFrame {
 //        btnThem = new JButton("Thêm");
 //        btnSua = new JButton("Sửa");
 //        btnXoa = new JButton("Xóa");
-//        btnTimKiem = new JButton("Tìm kiếm");
-//        searchFields = new JTextField(10);
+        btnTimKiem = new JButton("Tìm kiếm");
+        searchFields = new JTextField(10);
         btnThoat = new JButton("Thoát");
 //        panelButton.add(btnThem);
 //        panelButton.add(btnXoa);
@@ -73,9 +73,9 @@ public class CustomerFrame {
         panelButton.add(btnTimKiem);
         panelButton.add(searchFields);
 
-        btnThem.setFont(font);
-        btnSua.setFont(font);
-        btnXoa.setFont(font);
+//        btnThem.setFont(font);
+//        btnSua.setFont(font);
+//        btnXoa.setFont(font);
         btnTimKiem.setFont(font);
         btnThoat.setFont(font);
 
@@ -100,26 +100,6 @@ public class CustomerFrame {
             }
         });
 
-        btnThem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        btnXoa.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        btnSua.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
 
         btnTimKiem.addActionListener(new ActionListener() {
             @Override
