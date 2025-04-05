@@ -74,7 +74,7 @@ public class VehicleFrame {
 
         model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{"Biển số xe", "Mã chủ xe", "Loại xe", "Vị trí đỗ xe", "Ngày đăng kí thuê", "Ngày giờ vào", "Ngày giờ ra", "Phí phải trả"});
-        table = new JTable(model);
+            table = new JTable(model);
 
         JScrollPane scrollPane = new JScrollPane(table);
 

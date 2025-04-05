@@ -5,6 +5,8 @@ import service.ManageService;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ManageVehicleFrame {
     private JFrame fr;
@@ -36,7 +38,6 @@ public class ManageVehicleFrame {
         txtparkingDate = new JTextField(15);
         txtCheckIn = new JTextField(15);
         txtCheckOut = new JTextField(15);
-//        txtFee = new JTextField(15);
 
 
         panel1.add(new JLabel("Biển số xe"));
@@ -80,7 +81,6 @@ public class ManageVehicleFrame {
         txtparkingDate.setFont(font);
         txtCheckIn.setFont(font);
         txtCheckOut.setFont(font);
-//        txtFee.setFont(font);
 
         for (Component c : panel1.getComponents()) {
             if (c instanceof JLabel) {
@@ -90,9 +90,18 @@ public class ManageVehicleFrame {
 
         btnTimKiem.setFont(font);
         btnThoat.setFont(font);
+        btnCheckIn.setFont(font);
+        btnCheckOut.setFont(font);
 
         table.setFont(new Font("Arial", Font.PLAIN, 14));
         table.setRowHeight(25);
+
+        btnThoat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fr.setVisible(false);
+            }
+        });
 
         fr.add(panelButton, BorderLayout.SOUTH);
         fr.add(scrollPane);
